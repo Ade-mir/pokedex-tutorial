@@ -32,7 +32,7 @@ async function loadPokemon(id) {
     if (currentPokemonId === id) {
       displayPokemonDetails(pokemon);
       const flavorText = getEnglishFlavorText(pokemonSpecies);
-      document.querySelector(".body3-fonts.pokmon-description").textContent =
+      document.querySelector(".body3-fonts.pokemon-description").textContent =
         flavorText;
 
       const [leftArrow, rightArrow] = ["#leftArrow", "#rightArrow"].map((sel) =>
@@ -190,13 +190,13 @@ function displayPokemonDetails(pokemon) {
 
   document.querySelector(
     ".pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight"
-  ).textContent = `${weight / 10} kg`;
+  ).textContent = `${weight / 10}kg`;
   document.querySelector(
     ".pokemon-detail-wrap .pokemon-detail p.body3-fonts.height"
-  ).textContent = `${height / 10} kg`;
+  ).textContent = `${height / 10}m`;
 
   const abilitiesWrapper = document.querySelector(
-    ".pokemon-detail-wrap .pokemon-detail-move"
+    ".pokemon-detail-wrap .pokemon-detail.move"
   );
   abilities.forEach(({ ability }) => {
     createAndAppendElement(abilitiesWrapper, "p", {
@@ -205,15 +205,15 @@ function displayPokemonDetails(pokemon) {
     });
   });
 
-  const statsWrapper = document.querySelector("stats-wrapper");
+  const statsWrapper = document.querySelector(".stats-wrapper");
   statsWrapper.innerHTML = "";
 
   const statNameMapping = {
     hp: "HP",
     attack: "ATK",
-    defence: "DEF",
+    defense: "DEF",
     "special-attack": "SATK",
-    "special-defence": "SDEF",
+    "special-defense": "SDEF",
     speed: "SPD",
   };
 
